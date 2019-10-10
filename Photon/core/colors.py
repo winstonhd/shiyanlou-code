@@ -2,7 +2,7 @@ import sys
 
 colors = True #输出默认是有颜色的
 machine = sys.platform #检测当前操作系统类型
-if machine.lower().startswith(('os', 'win', 'darwin', 'ios'))：
+if machine.lower().startswith(('os', 'win', 'darwin', 'ios')):
 	colors = False #在mac&windows&系统下，colors改为 False
 if not colors:
 	end = red = white = green = yellow = run = bad = good = info = que = '' #当在mac&Windows系统下，其他颜色都为空
