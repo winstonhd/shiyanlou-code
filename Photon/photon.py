@@ -22,3 +22,25 @@ parser = argparse.ArgumentParser()
 
 #添加参数步骤
 parser.add_argument('-u', '--url', help = 'root url', dest='root') #dest:参数别名
+parser.add_argument('-c', '--cookie', help =  'cookie', dest = 'cook')
+parser.add_argument('-r', '--regex', help = 'regex pattern', dest = 'regex')
+parser.add_argument('-e', '--export', help = 'export format', dest = 'export')
+parser.add_argument('-o', '--output', help = 'output directory', dest = 'output')
+parser.add_argument('-l', '--level', help = 'level to crawl', dest = 'level', type = int)#type：参数类型
+parser.add_argument('-t', '--threads', help = 'number of threads', dest = 'threads', type = int)
+parser.add_argument('-d', '--delay', help = 'delay between requests', dest = 'delay', type = float)
+parser.add_argument('-s', '--seeds', help = 'additional seed URLs', dest = 'seeds', nargs = "+", default = [])#nargs 应该读取的命令行参数个数，+表示一个或多个参数
+parser.add_argument('--user-agent', help = 'custom user agent(s)', dest = 'user_agent')
+parser.add_argument('--exclude', help = 'exclude URLs matching this regex',dest = 'exclude')
+parser.add_argument('--timeout', help = 'http request timeout', dest = 'timeout', type = float)
+
+#其他参数
+parser.add_argument('--headers', help = 'add headers', dest = 'headers', action = 'store_true')
+parser.add_argument('--dns', help = 'enumerate subdomains and DNS data', dest = 'dns', action='store_true')
+parser.add_argument('--ninja', help = 'ninja mode', dest = 'ninja', action = 'store_true')
+parser.add_argument('--keys', help = 'find secret keys', dest = 'api', action = 'store_true')
+parser.add_argument('--only-urls', help = 'only extact URLs', dest = 'only_urls', action = 'store_true')
+args = parser.parse_args() #返回一个命令空间，如果想要使用变量，可用 args.attr
+
+headers = args.headers #提供headers
+delay = args.delay or 0 #请求延时，默认为0
