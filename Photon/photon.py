@@ -52,7 +52,21 @@ crawl_level = args.level or 2 #爬取的层数，默认为2层
 thread_count =args.threads or 2 #线程数，默认值为2个线程
 only_urls = bool(args.only_urls) #only_urls默认为False
 
+keys = set() #秘钥
+files = set() #pdf, css, png等类型的文件
+intel = set() #邮箱地址，网站账号等网络相关信息
+robots = set() #robots.txt 文件
+custom = set() #由自定义的正则表达式匹配的字符串
+faild = set() #没有成功爬取的URLs
+scripts = set() #JS文件
+external = set() #不属于目标网站范围的URLs
+fuzzable = set() #已在其中获取参数的网址，比如：example.com/page.php
+endpoints = set() #从js文件中找到的URLs
+processed = set() #已爬取过的URLs
+internal = set([s for s in args.seeds]) #属于目标网站范围内的URLs
 
+bad_intel = set() #失效的网站URLs
+bad_scripts = set() #失效的js文件URLs
 
 
 
