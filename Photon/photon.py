@@ -44,3 +44,25 @@ args = parser.parse_args() #返回一个命令空间，如果想要使用变量�
 
 headers = args.headers #提供headers
 delay = args.delay or 0 #请求延时，默认为0
+timeout = args.timeout or 6 #http请求超时，默认为6
+cook = args.cook or None # Cookie,默认为None
+api = bool(args.api) #判断是否有api，是布尔类型
+ninja = bool(args.ninja) #切换Ninja模式
+crawl_level = args.level or 2 #爬取的层数，默认为2层
+thread_count =args.threads or 2 #线程数，默认值为2个线程
+only_urls = bool(args.only_urls) #only_urls默认为False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
